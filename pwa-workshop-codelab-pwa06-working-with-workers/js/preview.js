@@ -17,7 +17,7 @@
  import { openDB } from 'idb';
  import { marked } from 'marked';
  import { wrap, proxy } from 'comlink';
- 
+ //yawa si anthony
  window.addEventListener('DOMContentLoaded', async () => {
    const preview = document.querySelector('.preview');
    const db = await openDB('settings-store');
