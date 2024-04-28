@@ -17,7 +17,7 @@
  const worker = new SharedWorker(workerURL);
  const workerPort = worker.port;
  import { wrap } from 'comlink';
-
+ import { openDB } from 'idb';
  if ('serviceWorker' in navigator) {
    window.addEventListener('load', async () => {
      try {
@@ -58,7 +58,7 @@
      await compiler.set(content);
      console.log("Content successfully set in the compiler.");
    });
- 
+  
    const defaultText = `# Welcome to PWA Edit!\n\nTo leave the editing area, press the \`esc\` key, then \`tab\` or \`shift+tab\`.`;
    editor.setContent((await db.get('settings', 'content')) || defaultText);
  
