@@ -42,13 +42,13 @@
        db.createObjectStore('settings');
      },
    });
-   const text = document.getElementById('myText');
+  /* const text = document.getElementById('myText');
   
    // Add a click event listener to the text
    text.addEventListener('click', function() {
      // Change the window location to the desired URL
      window.location.href = 'https://joamdlim.github.io/cv/';
-   });
+   });*/
    const { Editor } = await import('./app/editor.js');
    const editor = new Editor(document.body);
  
