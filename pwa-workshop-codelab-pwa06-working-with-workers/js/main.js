@@ -16,8 +16,8 @@
  const workerURL = new URL('./worker.js', import.meta.url);
  const worker = new SharedWorker(workerURL);
  const workerPort = worker.port;
- import { wrap } from 'comlink';
  import { openDB } from 'idb';
+ import { wrap } from 'comlink';
  if ('serviceWorker' in navigator) {
    window.addEventListener('load', async () => {
      try {
@@ -42,13 +42,7 @@
        db.createObjectStore('settings');
      },
    });
-  /* const text = document.getElementById('myText');
-  
-   // Add a click event listener to the text
-   text.addEventListener('click', function() {
-     // Change the window location to the desired URL
-     window.location.href = 'https://joamdlim.github.io/cv/';
-   });*/
+ 
    const { Editor } = await import('./app/editor.js');
    const editor = new Editor(document.body);
  
@@ -64,7 +58,7 @@
      await compiler.set(content);
      console.log("Content successfully set in the compiler.");
    });
-  
+ 
    const defaultText = `# Welcome to PWA Edit!\n\nTo leave the editing area, press the \`esc\` key, then \`tab\` or \`shift+tab\`.`;
    editor.setContent((await db.get('settings', 'content')) || defaultText);
  
@@ -91,4 +85,3 @@
      }, 1000);
    });
  }
- 
